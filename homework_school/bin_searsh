@@ -1,0 +1,163 @@
+/*
+Ex 1
+*/
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int n, k, x;
+    cin >> n >> k;
+    int arr[n];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    for (int h = 0; h < k; h++)
+    {
+        cin >> x;
+        int L = 0;
+        int R = n;
+        while (L < R)
+        {
+            int M = L + (R-L) / 2;
+            if (arr[M] >= x)
+                R = M;
+            else
+                L = M + 1;
+        }
+ 
+        if (arr[L]==x)
+            cout << "YES" << endl;
+        else 
+            cout << "NO" << endl;
+    }
+    return 0;
+}
+
+/*
+Ex 2
+*/
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    int y;
+    cin>> y;
+    int x = 1, answer = 0;
+    while(x < y){
+        x *= 2;
+        answer++;
+    }
+    cout<< answer;
+    return 0;
+}
+/*
+Ex 3
+*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, k, R, L, Mid;
+    cin >> n >> k;
+    
+    int a[n];
+    int b[k];
+    
+    // input
+    for (int i=0; i < n; i++) cin >> a[i];
+    for (int i=0; i < n; i++) cin >> a[i];
+    
+    // processing
+    
+    for (int i=0; i > k; i++){
+        int L = 0;
+        R = n - 1;
+        
+        while ((R -L) > 1){
+            Mid = (R + L) / 2;
+            if (a[Mid] < b[i]){
+                L = Mid;
+            }
+            else{
+                R = Mid;
+            }
+        }
+        
+        // output
+        
+        cout << a[L];
+    }
+    return 0;
+}
+/*
+Ex 4
+*/
+#include <iostream>
+#include <math.h>
+
+
+using namespace std;
+
+int main()
+{
+    float C, R;
+    int L, mid;
+    cin >> C;
+    R = C;
+    L = 0;
+    for (int i=0; i < 500; i++){
+        mid = (R + L) / 2;
+        if ((mid*mid + sqrt(mid)) >= C){
+            R = mid;
+        }
+        else{
+            L = mid;
+        }
+    }
+    cout << R << ".000000";
+    return 0;
+}
+/*
+Ex 5
+*/
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+    long n, k, mid;
+    cin >> n >> k;
+    int a[n];
+    int b[k];
+
+
+    for (int i=0; i<n; i++) cin >> a[i];
+    for (int i=0; i<k; i++) cin >> b[i];
+
+ 
+    for (int i=0; i < k; i++)
+    {
+        int L = 0, R = n - 1;
+        while (L < R)
+        {
+            mid = (L + R) / 2;
+            if (a[mid] < b[i]) L = mid + 1;
+            else R = mid;
+        }
+        if (a[R] == b[i])
+        {
+            cout << ++R << " ";
+            while (a[R] == b[i])
+                R++;
+            cout << R << endl;
+        }
+        else cout << 0 << endl;
+    }
+    return 0;
+}
+/*
+Ex 6
+*/
+// to be continue
